@@ -2,7 +2,9 @@ import { useNavigate } from "react-router-dom";
 import "./Category.scss";
 
 const Category = ({ categories }) => {
+   // console.log(categories);
     const navigate = useNavigate();
+
     return (
         <div className="shop-by-category">
             <div className="categories">
@@ -12,12 +14,17 @@ const Category = ({ categories }) => {
                         className="category"
                         onClick={() => navigate(`/category/${item.id}`)}
                     >
-                        <img
-                            src={
-                                process.env.REACT_APP_STRIPE_APP_DEV_URL +
-                                item.attributes.img.data.attributes.url
+                        {/* {item.images.map((image) => ( */}
+                             <img
+                            src= {
+                                process.env.REACT_APP_STRIPE_APP_DEV_URL + '' +
+                                item.images.formats.thumbnail.url
                             }
+                            alt={item?.images?.name}
                         />
+                         {/* ))} */}
+                       
+                        <b>{item.name}</b>
                     </div>
                 ))}
             </div>

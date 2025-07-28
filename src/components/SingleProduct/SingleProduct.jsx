@@ -29,9 +29,10 @@ const SingleProduct = () => {
         setQuantity((prevState) => prevState + 1);
     };
 
+    console.log(data);
     if (!data) return;
-    const product = data?.data?.[0]?.attributes;
-
+    const product = data?.data?.[0];
+console.log(product);
     return (
         <div className="single-product-main-content">
             <div className="layout">
@@ -40,14 +41,14 @@ const SingleProduct = () => {
                         <img
                             src={
                                 process.env.REACT_APP_STRIPE_APP_DEV_URL +
-                                product.image.data[0].attributes.url
+                                product.img[0].url
                             }
                         />
                     </div>
                     <div className="right">
-                        <span className="name">{product.title}</span>
-                        <span className="price">&#8377;{product.price}</span>
-                        <span className="desc">{product.description}</span>
+                        <span className="name">{product.Title}</span>
+                        <span className="price">&#8377;{product.Pric}</span>
+                        <span className="desc">{product.desc}</span>
 
                         <div className="cart-buttons">
                             <div className="quantity-buttons">
@@ -73,8 +74,9 @@ const SingleProduct = () => {
                                 Category:{" "}
                                 <span>
                                     {
-                                        product.categories.data[0].attributes
-                                            .title
+                                       // product.categories[0].name
+                                        product?.categories?.[0]?.name || "Unnamed Category"
+                                            
                                     }
                                 </span>
                             </span>
@@ -91,10 +93,10 @@ const SingleProduct = () => {
                         </div>
                     </div>
                 </div>
-                <RelatedProducts
+                {/* <RelatedProducts
                     productId={id}
                     categoryId={product.categories.data[0].id}
-                />
+                /> */}
             </div>
         </div>
     );

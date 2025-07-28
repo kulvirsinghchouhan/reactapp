@@ -1,0 +1,91 @@
+@import "../../css-config/mixins.scss";
+
+.checkout-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-form,
+.cart-summary {
+    flex: 1;
+    min-width: 300px;
+}
+
+.checkout-form h3,
+.cart-summary h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.checkout-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.checkout-form button {
+    width: 100%;
+    background-color: #6c5ce7;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.checkout-form button:hover {
+    background-color: #5945d0;
+}
+
+.cart-summary {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.summary-total {
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    font-size: 18px;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.5s ease-out;
+}
